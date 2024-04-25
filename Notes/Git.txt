@@ -1,0 +1,231 @@
+# KPIT Agile Planning (KAP)
+
+- Members
+	- Product Manager
+	- Developer 
+	- Tech Lead
+	- Scrum Master
+
+to create epic 
+    -> new item 
+    -> tracker(epic)
+    ->subject(add title here for an epic)
+    ->description()
+    -> assign to someone , start date , due date 
+    -> can be edited
+
+to create user story 
+    ->new item
+    -> tracker(user story)
+    -> subject
+    -> description
+    -> assign 
+    -> story point(to define complexity of ur user story)
+    ->create 
+to create a task 
+    create it in the same way
+
+
+# go to items to see ur  epic , userstory,  task 
+# initially no relation exists  between these 3 
+-> to add relation copy the item_id or a text and click on edit then go to  parent task and then paste that id for defining of  relation then SUBMIT 
+
+
+# EPIC(Topmost hierarchy) -> userStory(child of Epic) -> Task(child of userStory)
+why to have relations ? 
+bcz ur single epic gets divided into multiple user stories and ur single userstories get divided into multiple tasks and these tasks will get assigned to  respective team members 
+
+-------------------------------------------------------------------------------------------
+PROJECT BACKLOG AND SPRINT BACKLOG 
+
+-> go to BACKLOG tab 
+-> since we created a user story we will have a product backlog (As this userstory is not asssociated  with any sprint )
+-> so on the downarrow button in the same tab go to "New sprint"
+-> provide any valid name for sprint -> provide a start date and due date (standard time duration is 2 weeks)
+-> after creating a sprint we need to add user story with it as well 
+    -> ways to do it 
+        1) simply drag and drop . also u can create userStory in Backlog tab only using the downarrow button 
+      
+-> u can track progress of ur sprint using burndown chart 
+
+-> goto releases tab and create a release .(as soon as a release is created it will be visible in the Backlogs tab)
+
+# User story acts as centralised component where it is bound to have some relation with
+Epic
+Task
+Sprint
+Release
+
+-> so we want to have relation with user story and release 
+-> steps: 
+    -> goto edit for userstory 
+    -> go in releases dropdown and select ur release 
+
+***************************************************************************************
+***************************************************************************************
+KAP.KPIT.com 
+1.primary puropse of KAP is u can plan your project in Agile way 
+2.Not mandatory u should always have the agile planning on kap , u can use it as ticket managment system or project mangement system 
+
+3. Every KPITIAN can access to KAP who has KPIT credentials 
+4. WE need to use username and not email address (only username and password)
+
+#want to  add team members in any project 
+5.If u want to provide access to team members , it can be done 
+    -> it is mandatory that ur team members should login to their KAP.com website before u add  them in any of the project
+6. If u want to add someone who does not have KPIT credentials , yes we can do it 
+    -> we can create their user account into the KAP website on approvals and then we can add them to the project
+
+# what is project in KAp and how to create it 
+
+# how do we reach to the KAP support team > 
+8. whenver we login to KAP there is dedicated KAP support team link available , this way new ticket can be generated for any query 
+
+9. SETTINGS available in KAP 
+ -> all project level configurations are available in settings tab that needs to be initialized. 
+ -> product manager can have access to  setting tab 
+ -> Developers or QA does not have access to  setting tab
+ -> Modules ( backlog , item ,new items ,gantt ,forums... these all menus are modules )and this modules can be enabled or disabled accordingly in  [settings -> modules ]
+ -> In [setting -> members ] we can add new members just searching through their user name and then roles(defines their power and roles)
+
+ # Epic, UserStories, tasks these all are called as  TRACKERS  , at project level that is in settings -> trackers -> (multiple trackers are availaible and can be selected.) 
+
+ # we can have filters to  find items and that filter can be saved as well . 
+ # multiple items can be updated by jsut selecting all and then editing any one all will be updated that is BULK UPDATING 
+ # we can also export the work item in .csv or .pdf file 
+
+-> custome feilds , trackers and workflow is  configurable and available in KAP 
+-> if we want to add some new trackers and its corresponding custom feilds we need to  follow : 
+    ->in menu section -> Documnet tab -> click on "custom feild and workflow template"
+
+->KAP is integrable with third party applications , its just u need the approval and authorization 
+-> if ur project required any additional MODULES that needs to be integrated then yes it is possible , u can always request through support request .
+-> A single ticket cannot be assigned to multiple assignes "SINGLE TICKET SINGLE ASSIGNE IS THE POLICY ".
+-> multiple members can edit ur ticket details , but everything gets loged in history , u  can check it from  there 
+-> can we create sub-projects in CAP ? 
+yes we can create hierarchy of projects in CAP but only single ROLE is there to which we enable this access for creating sub project 
+    -> Overview -> new SubProject (top right menu bar) 
+
+-> FORUMS used for discussion between team members
+-> all things available in setting is customizable at project level 
+    information ,modules, members, versions, item categories, wiki ,repositories,forums,activities , backlog
+-> KAP documentations is available at Home page
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+# Git
+
+- How to create new Project/Repositories
+	- Go to Menu -> Project -> Blank Project
+	- Add Project name, project URL then click on Create Project
+
+- Clone Project/Repositories
+	- Clone can be done in two ways
+		- Using SSH or HTTPS clone URL 
+	- git clone cloneURL
+	- it will ask for username and password and clone will be created
+
+- git status -> list how many untracked files, modified files and deleted files are there.
+
+- Commit
+	- git gui (work same as git status)
+	- move untracked files to Staged changes
+	- Add initial commit message
+	- Click on commit
+	- Files will not be visible on repositories as commit will be for local system only
+	- For files to be visible, we need to push the files.
+
+- Push
+	- git gui
+	- After commit, just click on push (on master)
+	- it will ask for username and password 
+	- Now, changes will be visible to repositories
+
+- Pull
+	- If you create file directly on repository, it will not be visible on local file system
+		- create new file -> add commit -> create
+	- for that, we have to pull that file
+	- git pull origin master
+	- it will ask for username and password
+
+- How to commit and push multiple files
+	- git status
+	- git add file1 file2
+	- delete any file -> rm fileName
+	- change anything inside file -> nano fileName
+	- git commit -m "Any Message Here" 
+	- git gui
+	- remove deleted files
+	- git push origin master
+	- enter username and password
+	- It is used when multiple people are working on the same repository
+
+- Reset
+	- Used when we want to revert any previous commit or changes
+	- git log -> gives file that is recently deleted
+	- git reset --hard commit (commit ex:- mentioned in git log -> random value like 329rjenr3893)
+	- Now, To enable force
+		- Settings -> Repository -> Protected Branches -> enable Allow to force push
+	- git push origin master --force
+
+- Branches
+	- tracks development of module or indivisuals work independently
+	- All history or changes can be tracked via branch
+	- Kinds of Branch
+		- Master -> production code
+		- Development/pre-production -> pre-production code
+		- feature -> feature planned for release	
+		- bug/hotfix -> bugs
+		- release -> version of production release
+
+- Create Branch
+	- Two ways to create
+		- Using Terminal
+			- git branch
+			- git checkout -b pre-production -> to add new branch
+			- Now, push something on new branch
+				- git status
+				- git add anyFileName
+				- git push origin pre-production
+				- Enter user name and password
+				- Now, new branch is available on repository
+		- Using Central Repository
+
+- Merge (merge branches)
+	- Go to repository -> Files -> create merge request
+	- add description -> create merge
+	- Now, only master branch will be visible
+
+- Amend
+	- used to modify last commit or add entirely new new commit
+	- Adding new file to last commit
+		- git add fileName
+		- git commit --amend 
+		- git push origin pre-production --force
+	
+- Rebase
+	- used to modify commit history of a branch
+	- git rebase -i HEAD-4 -> modify previous 4 commit on the branch
+	- reword - change name of commit
+		- r -> reword commit -> change message to new message
+			- git push origin pre-production --force
+	- squash - combine multiple commits into one commit
+		- s -> squash commit -> add s infront of any number of commit
+			- git push origin pre-production --force
+
+- Cherry pick
+	- pick a commit from one branch and merge it to commit of another branch
+	- go to one commit -> options -> cherry pick 
+	- select pick into branch (In which branch you want to merge) -> merge
+	- git cherry -pick
+
+- Stash
+	- when we don't want to commit changes to a branch at that current moment, git stash is used
+	- it saves them for later use
+	- git status
+	- git stash -u (consider untracked file for later use)
+	- Now, we can move to any branch to work
+	- git checkout pre-production -> move to new branch
+	- Come back to previous branch
+	- git stash apply -> to revert stash
+	- Now, we can work on saved commits

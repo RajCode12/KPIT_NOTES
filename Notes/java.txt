@@ -1,0 +1,440 @@
+#Questions
+
+OOPS, Exception Handling
+Generics,Collection
+JDBC
+JPA
+Spring Boot
+
+# 7 features of Enterprise Application
+
+1. Remote capability of an application (need internet)
+	Ex:- social media apps 
+
+2. High availability of an application 
+
+3. Multithreading application
+
+4. Pooling of resources
+	Pooling - set of commom resouruces
+	Ex:- 1) bank have many account for customers
+	     2) Wikipedia (lot of resurces, no id required)
+	
+
+5. Caching of resources 
+	Ex:- 1) Account assigned to a customer. Now, he can be recognised via account no.
+	     2) Gmail (requires id)
+	
+6. Transaction Property
+	Ex:- sending a message (need not be financial transaction)
+
+7. Security Management
+	- Done using TLS (transport layer security)
+	- OTP, password
+
+#OOPS
+
+1. Abstraction
+	It is the "what is" part of an object
+	Hiding the complexity of an object
+	Ex:- dispense cash from ATM
+
+	a) Data Abstraction - how much money ATM contains
+		Ex:- private long totalNumberOfHits;
+	b) Procedural Abstraction - private function
+		Ex:- private void dispenseCash();
+	c) Class Abstraction
+		private class Permission{
+			private dispenseCash() {
+				//actual code to deal with cash withdraw
+			}
+			void withdraw(float amount) {
+				dispenseCash(amount);
+			}
+		}
+
+2. Encapsulation
+	It is the "How is it" part of an object
+	Writing the complexity of an object
+	Ex:- how it is dispensed?
+
+3. Polymorphism 
+	Ability of a buisness entity to have many forms
+	Ex:- 1) class Extension
+		Doctor -> Surgeon -> HardSurgeon (IS-A relationship)
+		Ex:- All Surgeon are doctor but not vice-versa.
+		class Doctor {}
+		class Surgeon extends Doctor {}
+	2) function overloading
+		- functions with same name but differ in 
+			1) number of argument
+			2) sequence of argument 
+			3) type of argument
+		class Parent {}
+		void sum(int a, int b)
+		void sum(int a, float b)
+		void sum(float a, int b)
+		void sum(int a, int b, int c)
+	3) function overriding
+		- methods redefine in the child class using super keyword
+		class Child {}
+		void sum(int a, int b) - same as parent class
+		//Parent d = new Parent();
+		d.sum(2,3) -> Parent sum method
+		// Sum d = new Child();
+		d.sum(2,3) -> Child sum method (only if Child has sum method)
+	4) operator overloading
+
+4. Inheritance
+	Ability of a buisness entity to acquire properties from other existing entities.
+	2 TYpes of Inheritance
+	1) Inheritance of derivation
+		- regular classes
+		- Single level, MultiLevel, Multiple, Hierarchial 
+	2) Inheritance of Implementation
+		- abstract classes and interfaces
+
+#Assignment 
+fixed deposit - child of saving (
+credit card account - child of bankAccount (cash limit, credit limit)
+current account - child of bankAccount
+
+#Association
+ 1) is-A
+	- Aggreagation
+	- 'extends' keyword
+	- doctor -> surgeon -> heartSurgeon
+	- Child can exist without Parent (Surgeon is always a doctor)
+
+ 2) has-A
+	- Composition
+	- defined inside the class
+	class Heart {}
+	class Brain {}
+	class Human {
+		Heart h = new Heart();
+		int age;
+		Brain b = new Brain();
+	}
+	- Human has-A age
+	- Human has-A heart
+	- Human has-A brain
+	// Child cannot exist without parent (Heart cannot exist without Human)
+ 3) uses-A
+ 4) produces-A
+
+#Final, static , abstract
+
+
+#Abstract class
+	- abstract class meant for inheritance
+	- if a method is abstract -> class should be abstract
+	- if a class is abstract -> method can or cannot be abstract
+	- we cannot create the object of abstract class
+	- we can access method of abstract class only using its child classes
+
+#Interface
+	- strict version of abstract class
+	- all methods inside interface is by default are public and abstract
+	- method of interface should be declared public in child class
+	- Protactor - damru - violin
+	- narrowing the entity
+	// instrument -> musical instrument -> string based musical instrument
+#Assignment
+Instrument -> musical instrument -> string based, air based -> flute, guitar
+Instrument -> medical instrument -> pathelogical, surgical -> cutter, scissor
+- air based musical instrument 
+	- flute, shehnai
+- drum based musical instrument
+	- tabla, drum, dhol 
+-interface specific for tabla, scissor, flute, guitar, tabla
+
+#Packages
+	- same as directories
+	- java. -> main package
+	- a) lang -> object class, String class, exception
+	b) awt - button, frame
+	c) sql - driver
+	d) net - socket
+	e) util - ArrayList
+	- using import keyword
+#Access Specifiers
+	- default - within the same folder or package
+	// one class can create the object of another class
+	- public - outside the package
+	// we can create object of another class
+	// Note :- make constructor public also
+	- protected - both classes should be in the same package, access in the child class also.
+	- private - inside the same class only
+
+#Assignment 
+	- organize the create classes into relevant packages
+	- BankAccount into bankpackage, Instrument into other package, etc.
+
+# Exception Handling
+	- ability to handles run time errors
+	a) runtime - Syntax
+	b) compile time - Exception
+	c) Linker - missing libraries
+	d) fatal - out of memory - fragmentation fault
+	e) logical - 4/0 
+
+# Types
+	a) Checked - All other exception , Exception (I/O exception, SQL exception)
+	b) Unchecked - Runtime exception (IndexOutOfBound, Arithmetic, etc).
+
+#Try-catch block
+	- With try catch block, finally is optional
+	- With try block only, finally is mandatory
+	- In case of exception also, finally will run
+	// except in case of System.exit(0)
+
+# Throw -> Unchecked Exception
+  Throws -> checked Exception
+	- throws clause if only after the method name (except the main method)
+
+#Assignment 
+	- class Rocket has launch function
+	- IgnitionException - checked
+	- GravityException, BoosterException - Runtime/Unchecked
+
+#DAO
+	- DAO - data access objects
+	- to hide the low level logic of database.
+	1) POJO
+	2) POji
+	3) POjoImpl
+
+# Note 
+	- always add jar file to the projectName for hsqldb, mysql to work
+	- ProjectName -> preference -> java build path -> classPath -> Add external jar -> apply and close
+
+#Assignment 
+	- Do DAO for Employee table
+	- Emp(name,id,salary,job,experience,hireDate)
+	- use class LocalDate for hireDate
+
+#What if we have to write the same query for different table like customer , Employee, BankAccount?
+	- no need to write query for all
+	- solution is JPA
+
+#JPA 
+	1) POJO 
+		@Entity 
+		class Department {
+			@Id - use for primany key
+			int departmentNumber;
+			int deptLocation
+		}
+	2) EntityManagerFactory 
+		- EntityManager contains persist() -> insert query is persisted
+	3) META_INF -
+		- .xml file -> responsible for transmission of data (import data)
+
+# Important for JPA Project
+	- file -> New -> Project -> Maven -> Maven Project -> check on create a simple project
+		-> groupId = com.kpit -> artifactId = jpaproject
+
+	- file -> copy META and paste it to src/main/resources inside jpaProject
+	- copy the dependencies from pom.xml downloaded and copy it to pom.xml file of jpaProject
+
+#Command for hsqldb
+	- java -cp hsqldb.jar org.hsqldb.server.Server --database.0 file:mydb --dbname.0 xdb
+	- java -jar hsqldb.jar 
+	- create table Employee
+		(
+			Id int,
+			Name varchar(50),
+			Dept varchar(20),
+			Salary int,
+			Job varchar(30),
+			JoiningDate Date
+		)
+
+#Jar file 
+	- archieve -> Collection of multiple files bundled
+	- How to create it?
+	- set jar file using bin path of jdk -> set path=C:\Program Files\jdk-17.0.1\bin;%path%
+	- jar -cvf jarfile.name(farm.jar) tiger.class lion.class 
+	- c -> create the jar file
+	- v -> verbose (checking the progress)
+	- f -> specifying the file name
+	- open the jar file -> jar -cvf animals.jar
+
+# JPA EntityManager
+	   SQL	     	JPA
+	- Select ->	find	
+	- delete ->	remove
+	- update ->	merge
+
+#String -> Immutable (changing the value will point to new location)
+-StringBuffer,StringBuilder -> Mutable
+-finalize -> invoked by garbage collection
+-Error and Exception -> Throwable but error are not catchable
+-java -x -> tuning the memory arguments (increase memory size)
+-java -X -> specify memory size
+-Anonymous block(method wil only bracket) -> call every time when object is called(like a constructor)
+- hashset -> equals and hashcode 
+- treeset -> comparable
+- jdbc -> resultSet hold data
+- is-A -> Aggregation(extends) has-A->use object (composition), uses-A -> passing Object , produces-A -> object is retrived or get
+- statement -> select
+- preparedStatement -> insert,update,delete
+- callable - procedure
+- DriverManager.registerDriver("driver")
+- ResultSet -> get()
+- Treeset - sorted
+- hashSet - random
+- phoneBook - linkedList(insert,update,delete)
+- fastest search - ArrayList
+- fastest search + insertion -> treeSet
+- this. -> current object , this() -> current class constructor, super() -> super class constructor
+- static method cannot be overriden
+- private method -> cannot be overriden (not visible)
+- overriden -> instance(static not) and accesible(private not)
+
+#Create TestCases
+- right click project -> properties -> build path -> click on JRE 1.5 -> Edit -> select JRE 15
+- src/test/java -> new -> class
+- right click on method name -> Run as -> Junit
+
+#Spring
+	-It is a framework on CDI (context dependency Injections)
+	- A a = new A();	B b = new B();
+		- C c = b.get(a);//dependency of objects
+	- bean loading strategy is Singleton/prototype
+
+#3 - JDBC
+- Create 
+
+#4 - JPA
+- New -> Project -> Maven -> Maven Project -> check on create a simple project
+	-> groupId = com.kpit -> artifactId = jpaProject(project name)
+
+#5 - SPRING
+- New -> Project -> Maven -> Maven Project -> check on create a simple project
+	-> groupId = com.kpit -> artifactId = springProject(project name)
+- pom.xml -> configure with 
+	<spring-context>
+	<spring-test>
+	------------
+	<spring-jpa
+	<spring-jdbc>
+- configure META_INF/myspring.xml -> src/main/resources
+	- declared all required class inside this class in xml format from downloaded file.
+- src/main/java -> create a class -> package name = com.kpit
+- No persistence.xml in spring
+- Note:- Always create test cases in src/test/java
+
+# A -> B -> C -> D
+	- IF D want to call the object of A (All have withdram method)
+	- Internally, D will call C -> C will call B -> B will call A
+	- A -> POJO	-> @Component
+	- B -> Checking JPA repository (POJI)	-> @Repository
+	- C -> Services Managing	-> @Service
+	- D -> Web Controller	-> @Controller
+
+#JPA and SpringBoot
+
+- em.persist(empObj) -> create empObj
+- em.find(Employee.class,1) -> find emp with primary key = 1;
+- em.merge(empObj) OR em.flush() -> update empObj that we just found
+- em.remove(empObj) -> delete empObj 
+- Query query = em.createQuery("from StudentTable")
+- query.getResultList() -> list all emp objects 
+- em.detach(empObj) -> make no changes (not synchronized with the database)
+- em.clear() -> detach All
+
+- EntityTransaction t = em.getTransaction();
+- trans.begin() -> start , trans.commit() -> end 
+- trans.rollback() -> make no changes -> used in exception handling
+
+- EntityManagerFactory emf = Persistence.createEntityManagerFactory("MyJPA");
+- EntityManager em = emf.createEntityManager();
+- EntityTransaction transaction = em.getTransaction();
+
+- @Entity -> Marks the class as a JPA entity
+- @Table(name="EmployeeTable") -> Specifies the details of the database table to which the entity is mapped.
+- @Id -> Marks the field as the primary key of the entity
+- @Column(name="Id") -> Specifies the details of the database column corresponding to the annotated field.
+
+- @GeneratedValue(strategy = GenerationType.IDENTITY) -> strategy for generating primary key values
+- GenerationType.SEQUENCE -> Uses a database sequence to generate unique values.
+- GenerationType.TABLE -> Uses a database table to store and generate unique values.
+
+- ApplicationContext ctx = new ClassPathXmlApplicationContext("myspring.xml");
+- <bean id="hotelRm" class="com.kpit.HotelRoom" scope="prototype"> </bean> -> inside myspring.xml
+- @Component("hotelRec") above any class
+- HotelReception reception = (HotelReception) ctx.getBean("hotelRec");
+- <context:component-scan base-package="com.kpit.myacc"/> -> inside myspring.xml
+- HotelReception reception = ctx.getBean(HotelReception.class);
+
+- Compulsory annotations -> @Entity, @Id
+- Optional annotations -> @Table, @Column, @GeneratedValue, @Transient (not mapped with database)
+
+- @Autowired
+  CarRepository carRepo; -> it will automatically set the value of carRepo by looking 
+				for a bean of type CarRepository in the context and injecting it.
+- private CarRepository carRepo;
+    @Autowired
+    public void setCarRepo(CarRepository carRepo) {
+        this.carRepo = carRepo;
+    } 
+
+- @Repository
+  public interface CarRepository extends CrudRepository<Car,Integer> {}
+- carRepo.save(carObj) -> create new carObj
+- carRepo.findById(1).orElse(null); -> find the car with id=1
+- Iterable<User> allUsers = userRepository.findAll(); -> find all cars
+- carRepo.deleteById(2).orElse(null); -> delete the user with id=2
+
+- PagingAndSortingRepository<Car,Integer> -> CrudRepository + extra methods
+-
+
+- @Component("id")
+class A
+{	
+
+}
+@Test {
+	ApplicationContext ctx = new ClassPathXmlApplicationContext("myspring.xml");
+	A a = (A)ctx.getBean("id");
+}
+
+- @Repo 
+class A {}
+
+@Service
+class B {
+	@Autowire
+	A a;
+
+--
+}
+
+1
+1
+2
+2
+2
+3
+3
+
+getRecord() -> 1,1,2,2,2,3,3
+getRecordByPnr() -> 1,1    2,2,2    3,3
+
+Map<Pnr,List<Bus>> => 1
+
+Bus -> pnr(1 row)
+pass(3 row)
+pass1
+pass2
+pass3
+makePayment
+		
+Passenger -> id,pnr,name,age
+List<Passenger> by Pnr
+
+1,List<Passenger>
+
+

@@ -1,0 +1,250 @@
+# PowerTrain
+
+T -> Torque
+-------------------------------------------------------------------------
+|			PowerTrain					|	
+|									|
+Prime Mover -------> Transmission	------->  Final Drive   ----->  Wheels -------> Movement
+ICE,Motor (Tpm)	   Primary GearBox	(Tt)			(Td)	    (Tractive Force)
+			|						|
+			|		Driveline			|
+			--------------------------------------------------
+
+- PowerTrain -> Refers to the prime mover(Engine,Motor) and the driveline that transmits energy 
+		to the wheels.	
+- Diveline -> Includes all the components from prime mover to the wheels.
+- Transmission -> Refers to one unit in the driveline, typically the primary gearbox.
+
+# Requirements of an Automotive powertrain
+
+- Transmit energy required for propelling the vehicle from the prime mover to the wheels.
+- Should enable the vehicle to move from rest.
+- Should adjust the torque and speed depending on the operating conditions.
+- Should enable the realization of vehicle Specifications such as maximum acceleration, maximum 
+	longitudinal speed, gradeability, fuel economy, range, etc.
+
+# Ideal Prime Mover Characteristics
+
+- Provides constant power over all speeds.
+- Torque will be hyperbola ( Power(constant) / Omega )
+
+Note:- At low speed, we require high torque (to break the inertia from rest to motion)
+	As the speed increases, the torque requirement decreases.
+
+# Acutal Engine Characteristics 
+
+- The speed at which we get the maximum power (rated power)-> Omega P
+- Maximum torque (rated torque) is achived at Omega T
+
+# Advantages of IC(Internal combustion) Engine 
+
+- High power-to-weight ratio
+- High energy density of fuel used -> relatively compact energy storage.
+
+# Limitations of IC Engine
+
+- Cannot provide sufficient torque at near 0 speed -> Reuqire a "Move off" element such as clutch.
+- Can Provide maximum power only at a certain speed -> it cannot meet the ideal traction hyperbola -> requires
+	a multi-speed gearBox.
+- Fuel consumption is strongly dependent on the operating point/state.
+
+# Multispeed Gears
+
+	Tin	-------->	GearBox	       --------> Tout
+	Omega in					Omega out
+
+- Torque and speed are inversely proportional (as Power is constant) 
+- Output torque = input torque * gear ratio 
+- Output speed = input speed / gear ratio	
+- If we increase the torque by 4, speed decreases to one-fourth
+
+# Automotive Chassis (A vehicle frame)
+
+- the main supporting structure of a motor vehicle to which all other components are attached.
+- Body on frame (1930) -> structural frame seperate from its body
+- material used -> Carbon steel or Aluminium alloys (lightweight) 
+
+# Types of chassis
+ 
+- Ladder frame chassis
+    -> oldest chassis and simplest in its structure like a ladder
+    -> shaped like a ladder
+    -> easy to  manufacure.  # made from steel ->  highly durable-> good shock absorver 
+    -> ladder chassis is heavy and still used in vehicles carrying heavy loads 
+    ->ADVANTAGES : 
+        -> easier to assemble as parts can be easily put in 
+        -> easier to fix as parts are not permanently attached 
+    ->DISADVANTAGES :
+        -> has weak torsional activity making it weak for cornering 
+        -> heavy weight not makes it ideal for sports car or hatchbacks  
+ 
+-> backbone chassis 
+        -> constructs of rectangular cross-sectional tube connected to both  front and rear axle shape like a spine in a human 
+        ADVANTAGES : 
+            -> this constructions allows better connections of the axles to the ground enhancing the stability of the car 
+            -> in offroading the  driveshaft is quiet safe even if  car hits the ground 
+            -> higher rigidity and can withstand a lot of pressure 
+        DISADVANTAGES :
+            -> dificulty in repairing the drive train as entire backbone has to be opened up 
+            ->costlier as manufacturing cost of this chasis is high
+ 
+->  MONOCOQUE(a french term meaning single shell ) CHASSIS  : 
+        ->also called structural skin . here loads are supported by an objects external skin in a manner similar to an egg shell 
+        -> originally was used in boat . a true MONOCOQUE carries both  tensile and compressive forces within the skin 
+        -> recognized by ABSENCE of load carrying internal frame.  
+        -> overall constructions of car using this chasssis is very lightweight  and compact 
+        -> modern suvs uses this chasis
+ 
+        ADVANTAGES : 
+            -> lightweight and compactness allows to be used in smallest of cars 
+            -> handling qualities are greatly enhanced because the entire vehicle is one compact structure 
+            -> manufacturing cost is quite low 
+            -> safety of passenger and car is enhaced because of cage like structure
+            -> being light ensures higher fuel efficiency 
+        DISADVANTAGES : 
+            -> lack of off roading capablities because of stiff constructions
+            -> lack of agility bcz of no room of components 
+            -> only affordable in case of mass production
+-> TUBULAR CHASIS 
+        ->  mainly used in sports car due to the safety it provides 
+        -> upgrade of LADDER  chassis as it is 3 dimensional 
+        ADVANTAGES
+            -> better rigidity 
+            -> offers best weeight/ rigidity ratio allwing car to be lightweight or strong 
+            -> best choice for racecar due to light weight
+        DISADVANTAGES
+            ->compex structures and  cannot be made using autonomous methods
+            ->time consuming to build and cannot be mass produced 
+            -> not feasible to be used in passenger car 
+            -> the structure raises the door which  makes it which makes it dificult to access the cabin
+ 
+Different Types of Car Body Style :
+ 
+1. SEDAN -> longest , 3 diff compartments  for engine , passengeers and cargo , 4 doors and closed roof 
+        -> dont have high ground clearance -> spacious upto 4 5 people
+        -> ex : nissan versa (subcompact sedan) , honda civic(compact sedan) , honda accord (mid size sedan) , dodge charger(full size sedan)
+ 
+2. Station wagon 
+        -> simialr to sedan having extended roofline and hatchbacks at the rear . 
+        -> 2 box design  (middle row passenger and cargo space )
+        -> also called state cars due to carrying a lot of passengeers along with a lot of cargo 
+        -> station wagon(mazda 6 sportswagon)
+3. SUV : 
+        -> HAVING HIGH  ground clearance , bigger proportions , offroad capablities , 7-8 people
+ 
+4. hatchbacks : 
+        -> not big in size but can sets 4 5 people 
+        -> traditionally a compact sedan . ex : minicopper  , audi a7
+ 
+5. coupe : sporty , compact , 2 doors , fixed roofline 
+        -> signature characterstics : longhood and sloping roof
+        -> high performing cars 
+        -> ford mustang 
+6. sports car   : 
+    porsche 911 , nissan gtr , ferrari 
+7. convertible cars : runs with , without a roof , reduced baggage area . 
+-> also called as cabriolets , roadsters  and spiders .
+audi a3 
+8. mini .... baaki ppt me hai
+
+# Video 4
+
+# AUTOSAR (Extension of Electroic Control Unit)
+
+- AUTOSAR - Automotive Open System Architecture
+- OEM - Original Equipment Manufacturer (that creates component that are used by another company for final product)
+- VFB - Virtual Functional Bus (acts as a communication mechanism between different software components)
+- API - Application programming interface
+
+- Main Objective -> DeCouple the application software and the hardware
+
+- Need of Autosar
+	- A modern car has 20-100 ECUs
+	- Each ECU serve as an application or task
+	- Each Application software is tightly binded with a micro-controller or hardware control unit
+	- So, If there are 100 applications been solved, there are atleast 100 ECUs
+	- This make the architecture very complex 
+
+- More Difficulties on ECU System for OEM
+	- Software has to be written from scratch when hardware is changed
+	- Whenever hardware is changed, OEM has to pay for Appication software as well as basic software (BSW)
+		that comes with it.
+	- When OEM want to add function to an existing ECU, it require a lot of effort
+	
+- Benefits of AUTOSAR 
+	- OEM will pay for application software only
+	- Hardware Abstraction - Developer can now focus on building the application than worrying about the 
+		micro-controller because AUTOSAR provides Microcontroller abstraction layer (MCAL) that
+		makes all the software independent of microcontroller
+	- Standardization - Every supplier has to write software in a particular exchange format
+
+# AUTOSAR Layered Architecture
+
+- 3 layes of Autosar 
+	- Application layer
+	- Runtime environment
+	- Basic software 
+		- Service layer
+		- ECU abstraction layer
+		- Microcontroller abstraction layer
+		- complex drivers
+	- At the bottom, we have microcontroller
+
+- Basic Software (BSW)
+	- Divided into functional groups 
+		- Service layer
+			- Objective:- Provide basic services for application, RTE and software modules
+			- Highest layer of basic software
+			- It manages the OS, memory and communication services
+			- Handles the diagnostic and I/O ports
+		- ECU abstraction layer
+			- Objective:- Make higher software layer independent of ECU hardware layout
+			- It keeps the application layer independent of the ECU
+			- It offers an API for access to devices regardless of their location
+		- MicroController abstraction layer
+			- Objective:- Make higher software layer independent of uC
+			- Lowest software layer of BSW
+			- It contains internal drivers with direct access to internal peripherals
+		- Complex device drivers
+			- Can be integrated into an AUTOSAR ECU
+			- Used to access the feature of ECU not covered by BSW
+			- Also used for migration purpose 
+
+- Runtime Environment (RTE)
+	- Objective:- Make AUTOSAR software components independent of a specific ECU
+	- Autosar software component communicate with other component via RTE
+	- Above RTE, the software architecture changes from "Layer" to "Component Style"
+
+- Application Layer
+	- Contains software components (SWCs) which realize the functionality of ECU
+	- This is the piece of application that OEM is ready to pay
+
+# Classic Architecture
+
+- Application layer
+- Data link layer
+	- CAN STACK - segments the data into frames
+	- CAN DRIVER - enable the access to hardware resources
+- Hardware layer
+
+# Design and Communication 
+
+- Seat Heating Control
+	- seven software components 
+	- one power management, 2 actuators (left-right), 2 heating dial (to turn on heater), 2 Seat heating control
+	- one Power management has 8 ports
+
+- Atomic software component - smallest software component which will remain in one ECU only
+- runnable entities - small piece of code to perform some specific tasks
+
+#Autosar Adaptive
+
+- C++ as a programming language
+- Service oriented communication as a base for service oriented architecture (SOA)
+- POSIX operating system (application run as processes)
+- Client doesn't know where the server is located
+- Applications connected at runtime
+- Types of flexibility
+	- static
+	- client can take server subscription
+	- client know the server location fully

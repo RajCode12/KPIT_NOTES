@@ -1,0 +1,136 @@
+# CPP
+
+-C-mantic
+	- ctrl + . -> to generate getter and setter
+	- ctrl + shift + P -> to generate header guard
+	- 
+
+- new keyword
+	- It allocates memory into heap only (otherwise Stack)
+	- Without toString(), hashCode value will be printed
+	- getter and setter -> to access the private members of the class
+	- C-mantic extension -> for definitions, getter-setter, etc
+	
+- iostream
+	- istream + ostream 
+	- Flow of data b/w input and output is controlled by iostream classes.
+	- cout (object of ostream), cin (object of instream)
+	- << -> insertion operator, >> -> extraction operator
+	
+- pointers
+	- int a = 10;	int *b = &a; (b pointer holds address of a)
+	- used to store the address of a variable
+	- * (used for hexadecimal value) -> tells the compiler that we are storing a address
+	- data type of pointer should be same as address of variable to be stored Otherwise
+		- Always have to do type casting
+		- arithmetic operations like a++ or a-- will be easy (otherwise specify memory size)
+	- arr[3] -> subscript notation (not understandable by c/c++ compiler)
+	- *(arr+3) -> pointer notation
+	- index start from 0 only because index 3 is converted to bytes (3*4(int bytes)) = 12 bytes
+	- If address of *(arr) = 1000 then *(arr+3) = 1000+12 -> Hence, it will access the fourth element
+	
+- Passing the values
+	- parameter that we pass in call -> formal
+	- parameter that we recieve in fun -> actual
+	- pass by value 
+		- actual -> int fun1(int a)
+		- call -> fun1(a)
+		- changes made in formal will not change in actual
+	- pass by address
+		- actual -> int fun2(int* a)
+		- call -> fun2(&a)
+	- Refernce (constant pointer)
+		- int a = 10;
+		  int *b = &a; -> pointer vaiable (assignmnet)
+		  int &c = a; -> reference variable (declaration)
+		- changes made in formal is reflected in actual
+		- whenever we have to pass or return object in c++, we will use refernce (no need to create copy)
+	- pass by refernce
+		- actual -> int fun3(int &a)
+		- formal -> fun3(a)
+	- Note:- formal/Call function of pass by value and reference is same (we can only find using actual function)
+
+- Student Example
+	- main.cpp -> int main() {}
+	- student.h -> contains student class
+	- student.cpp -> contains methods definition written in student.h file
+	- header file should be included in all cpp class
+	- new keyword will always return the address so we use pointer
+		- Student *sptr = new Student();
+		- same as Student s;	//stack memory
+		- always use delete keyword with new keyword otherwise memory leakage
+			- delete(sptr) 
+		- we you want to use again then, sptr = new Student(); 
+			- Because pointer is not deleted from stack (only the object is deleted from heap)
+
+- Static
+	- when application starts, all static data members and functions took space in data section
+	- default value is always 0
+	- single copy is created and shared by all methods -> Also called class variable
+	- static variable is accessed via static methods
+	- always write static keyword only in declaration (.h file) but not in definition
+	- . dot operator always use when left side is object
+	- :: scope resolution always use when left side is class or function
+	- It is compulsory to create one copy of static variable in .cpp file
+	- Static cannot call not-static data members because it don't support 'this' keyword
+	- Note: Every function has its own Stack.
+
+- Example
+	- Student
+	- Teacher
+	- BankAccount -> rateOfInterest - static
+
+- Overloading
+	- funtion name is same
+	- change in data type, order or number of parameter
+
+- Const
+	- written both in declaration as well as definition (both .h and .cpp file)
+	- cannot modify the value of any data member
+	- Const function can only call const data member
+	- Working: 
+		- First, It will look on left side, if anything is present, it will make it constant.
+		- Otherwise, it will look on the right side, and make it const.
+	- Non const function can call const as well as non const function
+
+- Destructor
+	- Destructor is called only for the objects in the stack memory
+	- free heap memory by deleting objects pointed by pointer
+	- Do not try to free space in main, always use destructor
+	- whenever use new() -> use delete inside destructor to free space
+	
+- Copy constructor
+	- we can easily copy the constructor if class don't have pointer using default copy constructor
+	- If we have pointer as a data member, we have to create own copy constructor
+	- We cannot pass constructor to copy constructor using object as it will go into recursion
+	- Instead, use refernce
+	- Always use const keyword with copy constructor
+	- dangling pointer -> when two pointer is pointing to the same memory address and if destructor is
+			called then both pointer try to free the same memory address 
+
+- Operator Overloading
+	- All header file should contains header guard using ctrl+shift+P
+	- If it is binary operator, only LHS object should call the operator function
+	- Book b1 = b2 -> It will call copy constructoras b1 is initially empty
+	- Book b1 = b2 -> b1 will be overriden if b1 already contains data (shallow copy)
+	- Cpp provides 	
+		- default constructor
+		- destructor
+		- copy constructor
+		- overloaded assignment(=) operator
+			- is safe if we have no pointer in class otherwise two problem arise
+				- Ex: b1 = b2;
+				- memory leakage (memory of pointer of first object)
+				- Tangling pointer because it will create shallow copy
+	- thats why we need to overload the assignment(=) operator
+	- Just delete the previous memory and assign new memory for the pointer
+
+- Composition
+	- Object of one class as member of another class
+	- Always use member intializer list in containment and inheritance beacause without that, it will
+		first call default constructor and then again override the data by calling parameterized
+		constructor.
+	- This situation only arise when we use object of one class into another and call object of one class
+		as a parameter of constructor of another class
+
+- 

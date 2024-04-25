@@ -1,0 +1,277 @@
+# Angular
+
+-- Command line --
+node -v -> to check node installed or not
+npm -v -> to check npm installed or not 
+code . -> to open VS code from workspace folder directly
+
+- Angular
+	- Typescript based frontend framework used to create a front end of an application
+	- Using Angular, we can create single page application only
+	
+End	Angular Application		Backend Application 	Database
+User
+	  (Node Server)			  (Java springBoot)	
+		|				|
+		|				|
+		---------------------------------
+				|
+			    Rest API -> to communicate frontend with backend(two different language)
+
+	- JSON(Javascript object notation) -> data sent in the form of Json between frontend and backend.
+
+- npm
+	- npm -> node packet manager
+	- npm init -> Create a simple Javascript project (we will see package.json file inside the working folder)
+	- package.json -> key value pair ("A":"B") file inside curly braces -> help to store details about the package 
+		including dependencies and script
+	- npm install packageName -> install any package (installed locally)
+	- npm install packageName -g -> If we want to install globaly
+	- npm uninstall packageName(Ex: typescript) -> delete any package
+
+- Execute JS file
+	- node fileName.js
+	- write command inside script in json (Ex: "start" : "node index.js") -> npm start (start is inbuilt)
+	- to run inbuilt script -> npm scriptName
+	- to run my own script -> npm run scriptName
+
+- Dependencies
+	- Production (by default)
+		- npm install typescript
+	- Development
+		- npm install typescript --save-dev
+		- only at the time of development(testing,etc)
+	
+- Angular CLI
+	- npm install @angular/cli -g
+	- ng version
+	- npm list -g @angular/cli -> gives path of npm folder
+	- set path=%path%;C:\Users\rajk9\AppData\Roaming\npm
+	- cd.. -> come back to workspace
+	- ng new projectName --standalone=false -> create angular project
+	- npm install - install all dependecies (node_modules) specified inside package.json
+	
+- Angular files
+	- package.json -> details about package including name,version,dependency_names,etc.
+	- node_modules -> stores actual dependencies required for the project
+	- bootstrap - css framework used to style the webpage
+	- style.css - declare global css property to apply on all html files.
+
+- Execute Angular Project
+	- ng serve -> command used to deploy the angular project into node server
+	- npm start -o -> start project 
+	- -o -> to open browser(directly write into script in package.json)
+	- ctrl+C -> stop project
+
+Note:- [ Angular.json -> Index.html -> main.ts (App module) -> app.module -> Component ]
+
+- Angular Component
+	- main building block of angular which display the output/UI
+	- To create component using CLI
+		- ng generate component componentName(Ex: Welcome)
+		- ng g c componentName
+	- By default 4 files will be created (ts,css,html,spec.ts)
+	- copy the bootstrap code and paste it into head of index.html
+	- minimun requirement is typescript class -> class should be decorated with @Component decorator
+
+- Component
+	- Right click on app then create a folder(component)
+	- create componentName.component.ts and componentName.component.html inside the folder
+	- selector -> used to refer the component to any html file
+	- add selector of componentName.component.ts in app.component.html
+	- 
+	- add export class of componentName.component.ts inside declaration in app.module.ts
+	
+- Binding
+	- It allow us to share data with typescript class and its associate template (html file) and vice-versa
+	- One Way data binding
+		- sharing of data either from typescript to html or html to typescript only in one direction
+	- Two Way data binding
+		- data sharing from both way
+		- using [(ngModel)] keyword
+		- add FormsModule in app.module.ts
+
+- Property Binding 
+	- value -> default value for the text box
+	- if we have to display another value from ts file, use property binding
+
+- Typescript
+	- go to worspcae (cd..)
+	- mkdir 05-typescript-starter
+	- cd 05-typescript-starter
+	- npm init --yes
+	- npm install typerscript
+	- Go to bin path of typescript folder just created
+	- set path=%path%;D:\Angular\Workspace\05-typescript-starter\node_modules\.bin
+	- tsc
+	- tsc main.ts -> execute ts file (a Javascript file is generated with same name and code)
+	- node main -> to get the output
+
+- Typescript
+	- Superset of Javascript
+	- Supports all the features of javascript with additional features
+	- Typescript file cannot be executed, it is converted to javascript first
+	- Typescript compiler(tsc) -> Using this, we convert typescript to javascript
+	- 5 types supported in Typescript (number,string,object,boolean,undefined)
+	- Typescript has dataTypes but JavaScript don't
+	- Javascript is dynamically typed language whereAs Typescript is static typed language
+
+- Module
+	- Module is also building block of angular project that holds components, custom files and register services
+	- ng g module moduleName -> generate module
+	- NgModule -> decorator used in top of the class to make that class as a Module
+	- NgModule contains declaration(component and custom files), imports(import any other module), 
+		provider(helps to register the services), exports(export module to other modules)
+	- ng generate component student/list-students -> create component in a specific module using cli
+				|		|
+			   ModuleName	   componentName
+	- Now, if we will run, it will give error as there are two modules
+	- Resolve -> Export the student Module inside exports(ListStudentComponent) and import it to the App module
+
+- Directives 
+	- Directive is a class which does a small modification inside the existing component/file
+	- Three types of directives
+	- Component Directive
+		- selector (used inside component), ng-template
+	- Attribute Directive
+		- ngModel (used inside input tag as attribute), ngClass, ngStyle
+		- ngClass -> we can apply any css class dynamically on any value
+		- ngStyle -> we can apply any particular css property in page
+	- Structural Directive
+		- *ngForm -> Use to pass multiple student data type to be displayed in html file		
+		- @Input() -> decorator used to pass data from parent to child component
+		- @Output() -> decorator used to pass data from child to parent component
+		- *ngIf -> condition (If-else) -> boolean value
+
+- Array
+	- arr:number[]=[1,2,3,4,5]
+	- arr:string[]=["raj","dev","hello","hii"]	
+	- arr:student[]=[{1,"Raj"},{2,"Dev"},{3,"Aditya"}]
+
+- Angular Service
+	- Angular is a singleton object
+	- We keep our data in the service and that data can be shared by multiple component
+	- @Injectable -> decorator used for service (injecting the object of service class into components -> dependency injection)
+	- ng generate service serviceName -> used to generate student/student via CLI
+								|	  |
+							  moduleName    serviceName
+	- Add Student array and getStudent function inside student.service.ts
+	- Add StudentService inside providers in student.module.ts
+	- Now, Inject studentService inside any component 
+
+- Pipe
+	- Angular pipe allows to display/change the data in custom format
+	- Ex:- currency,json,percent
+	- ng generate pipe pipeName(Ex:search) -> create new custom pipe
+	- pipe is also a typescript class 
+	- @Pipe -> decorator used for pipe
+	- It implements PipeTransform interface and must have transform function
+
+- Angular Lifecycle
+	- 3 important lifecycle
+	- provides hook to customize throughout the lifeclycle
+	- ngOnInit
+		- inside OnInit interface
+		- constructor of componentName.component.ts and OnInit will call only once during entire life cycle
+	- ngOnDestroy
+		- inside OnDestroy interface
+		- create a button and flag(true,false) for toggle
+		- called only once during entire lifecycle
+	- ngOnChanges
+		- inside OnChanges interface
+		- called everyTime when we make changes inside the component
+
+- Forms Handling
+	- 2 ways of using form in angular
+	- template driven form
+		- when most of the logic is inside the html template
+		- import FormsModule
+		- NgForm has property like value, touched, valid
+	- reactive form
+		- when most of the logic in inside the typescript class
+		- import ReactiveFormsModule
+		- FormGroup has same properties like NgForm
+
+- HTTP Service
+
+UI--------MyComponent.ts---------MyService.ts-----Rest API-----JSON Server
+		|
+	MyComponent.html 
+
+	- npm install json-server -> used to install JSON Server
+	- set path=%path%;D:\Angular\Workspace\node_modules\.bin
+	- npx json-server (no need to set path)
+	- npx json-server --watch studentdb.json -> setUp studentdb.json in the project
+	- this json will be responsible for data transfer from backend to frontend (two disimilar app)
+	- Thunder client in VsCode for database
+	- Go to the project
+	- npx json-server studentdb.json -> endoints URL
+	- copy and paste the enpoints link to the thunder client and send new request
+	- HTTPClinetModule -> used to connect to backend Rest API (import on student module)
+	- http.get(link) and https.post(link,studentObj) -> get the data from backend server to rest API and return type is Observable
+	
+- Single Page Application (SPA)
+	- A web application that interacts with the user by dynamically re-writing the current webpage 
+		with the new data without reloading the entire webpage
+	- By using Routing, we can achieve SPA in angular
+	- 
+	
+
+
+***********************************************************************************
+list-student.component.ts		list-student.component.html
+@Input() student:any={};		<p>{{studentId}} | {{studentName}}</p>
+		
+
+add-student.component.ts		add-student.component.html
+@Output() add=new EventEmitter();
+studentObj;				[(ngModel)]="studentId"
+addHandler(){				[(ngModel)]="studentName"
+   this.student.emit(student);		[(ngModel)]="studentMarks" 
+}					<button (click)="addHandler()">		
+					
+					
+
+app.component.ts
+students:any[]=[{},{}]			app.component.html
+addStudent(student:any) {		<div *ngFor="let s of students">
+    this.students.push(student);	<app-read-students [student]="s">
+					<app-add-student (add)=addStudent($event)>
+}				
+	
+
+
+
+**********************************************************************************
+list-student.component.ts	list-student.component.html
+studentObj			<p>
+
+add-student.component.ts	add-student.component.html
+				(ngModel)
+				button
+
+student.service.ts
+student-array
+default-constructor(no parameter)
+listStudent -> return students;
+addStudent(student:any)->student.push(student)
+deleteStudent(student:any) -> student.splice(idx,1)
+
+**********************************************************************************
+
+- Question
+	- Typescript
+	- Component, Data binding
+	- Form (tdf, rtf)
+	- Service, Emitter
+	- Http Service
+
+
+
+
+
+
+		
+
+ 
+					

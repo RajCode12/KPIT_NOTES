@@ -1,0 +1,292 @@
+# Cloud
+
+- Website
+	- SLA Downtime - https://www.atatus.com/tools/sla-downtime
+	- Availabilty zone - https://aws.amazon.com/about-aws/global-infrastructure/regions_az/
+	- Amazon console - https://aws.amazon.com/console
+	- Documentation - https://docs.aws.amazon.com
+	- AWS pricing calculator - https://calculator.aws
+
+- Types of Client 
+	- Indivisual - if one work as both developer and client (when we are developing our own software)
+	- Organizational - if one work as developer for developing application for the client
+
+- Types of Cloud
+	- Private cloud - set up cloud in different regions (data centers) 
+	- public cloud - services offered over the public internet (anyone can use or purchase them) - AWS
+	- Hybrid cloud - private + public cloud
+	- community cloud - infrastructure is shared between several organizations
+
+- Points
+	- Capital Expenditure - to pay all the price at once (buying a car)
+	- Operation Expenditure - to pay the price as we use the resource (renting a flat)
+	- BYOD (Bring Your Own Device) -  a policy that allows employees to use their personal devices for work purposes
+	- Economies of scale - production is inversely proportional to cost (As production increases, price decreases)
+
+- Cloud Benefits
+	- Large resource pool for venders - enaling us to access a vast amount of computing power, storage, and networking capabilities on demand
+	- Security and availabilty from vendor
+	- No capital investment - pay per use
+	- Elasticity - Easy to operate and scale
+
+- Cloud Region
+	- Region -------> Availability Zone (2-6) --------> Data Centers (1 or more)
+	- Availability Zone Maintainence 
+		- Planned - upgrades by cloud service providers to ensure infrastructure reliability, security, and performance
+		- UnPlanned -  responses to unexpected issues like hardware failures or security vulnerabilities
+	- Note :- 	
+		- One availability zone can have two data centers
+		- One data center can split on two availabilty zones
+
+- Amazon Web Services (AWS)
+	- IAM - Identity and access management 
+	- IAM User Login - https://[ACCOUNTID].signin.aws.amazon.com (AccountId - 14 digit)
+	- Root User Login - https://signin.aws.amazon.com
+
+- Cloud Model
+	- Iaas - Managing resource is easy, costly, Most privilges
+	- Paas - In b/w Iaas and Saas
+	- Saas - Cheaper, Least priviliges
+	- Example: Three way to get a car
+			- Own a Car / Purchase a Car - Iaas
+			- Lease a Car for fixed duration - Paas
+			- Book a car for single travel - Saas
+	
+- Virtual Private Cloud (VPC) 
+	- It allows you to logically isolate and control the networking environment for your resources, 
+		such as virtual servers and databases, in the cloud
+	- Stpes to create VPC with two subnets
+		- Search VPC 
+		- Go to Your VPCs (VPC Console)
+		- Click on create VPC More
+		- Select Details
+		- Create VPC
+	- Steps to delete VPC
+		- Go to VPC Console
+		- Go to region where you have create the VPC
+		- Select the VPC and Click on Actions
+		- Delete the VPC
+
+- Security Group
+	- It acts as a virtual firewall for your instances to control inbound and outbound traffic
+	- Security Group is tightly coupled with vpc (one security can have only one vpc but one vpc can have more than one security group)
+	- Steps to create security group
+		- Go to VPC Console
+		- Got to security section and select Security Group
+		- Click on create security group
+		- Choose your VPC
+		- Add two Inbound rule -> HTTP and SSH from IPv4 anywhere
+		- Finally, create security group
+	- Steps to delete Security Group
+		- Again go to VPC Console
+		- Go to group you want to delete
+		- Select the security group and click on Actions
+		- Delete Security Group
+
+- Elastic Compute Version 2 (EC2)
+	- Shares and CPU Memory (Compute Resources) from the Host
+	- Shares the Storage space from the Host Machine
+	- Shares the network
+	- Cost of EC2 Instance depends on
+		- Instance size (Cpu + Memory) 
+		- OS License cost
+		- Storage cost
+		- Netoerk Bandwidth
+	- EC2 Instance types
+		- t2 - Burstable size (Balanced CPU and Memory) - t2.micro is free
+		- t3 - Next version of t2 with better and newer CPUs
+		- M - More Memory 
+		- G - GPUs
+	- EC2 Dependencies
+		- VPC / Subnet
+		- ElasticIP or Assigned Public-IP
+			- ElasticIP can be used with other EC2 instance
+		- Security Group
+		- Elastic Block Storage (ESB) for disk
+		- Key/Pair to authenticate User
+	- EC2 OS choice
+		- Window server - free
+		- Linux - Rhel, Ubuntu
+		- MacOS - Never free (Special Hardware)
+	- EC2 Instance "Provisioning" type
+		- On Demand Instance - Normal/default
+		- Spot Instance - Discount instance with no Up-Time guarantee
+		- Reserved Instance - Pre booked instances (AWS cannot allocate these instance to anyone)
+	- Create EC2 Instance
+		- Go to Home page console
+		- Click on EC2
+		- Click on Launch Instance
+		- Select any one Quickstart AMIs - Ubuntu 20.04
+		- create a new key pair -> RSA Algorithm, PEM format
+		- Select existing or new Security group 
+		- Finally, launch Instance
+	- Terminate EC2 Instance
+		- GO to EC2 Instance created
+		- Click on Instance state 
+		- First stop instance then terminate instance
+
+- Local SSH Client
+	- Older version of Windows 
+  		- Use "PuTTY" free/OSS ssh-client for windows
+	- Newer version of windows
+   		- Command Prompt :> ssh
+   		- Powershell     :> ssh
+	- Newer version of windows 
+    		- Third party tools
+		- Git Bash
+		- Cmdir	
+
+- Simple Storage Service (S3)
+	- Elastic Object store (EOS)
+		- we get globally unique object id 
+		- used for storing raw or unprocessed data like pdf, jpg image, etc
+	- Elastic Block store (EBS)
+		- virtual 
+		- bucket - logical container in which we store object
+		- every object has its own url attached to it
+		- SDK (Aamzon SDK 2.X (software.amazon) for java version 17), AWS CLI
+		- cost, performance and security
+	- Elastic File system (EFS)
+		- 
+	
+- Access Key
+	- Steps to create access key
+		- IAM -> Users -> Search mail Id -> Security Credentials -> Create Access Key -> Download CSV file
+
+- AWS CLI
+	- aws --version -> check aws cli installed or not
+	- aws configure
+	- add key,password from csv file downloaded
+
+- Bucket
+	- arn(amazon resource name) -> arn:aws:s3:::rajbuckett
+	- to upload file in bucket
+	- first create the spring starter project then write the code, run and create the jar file
+	- Run as maven build and set goal as package
+	- jarFileName (name of the jar file depends on properties written on application.prop)
+
+	- Command to run on terminal 
+		- Right click and click "run in local terminal"
+		- cd target
+		- dir -> to list all jar files
+		- "C:\Program Files\jdk-17.0.1\bin\java.exe" -jar jarFileName.jar filePathToBeUploaded
+		- Ex:- "C:\Program Files\jdk-17.0.1\bin\java.exe" -jar demo3-0.0.1-SNAPSHOT.jar "C:\\Users\\rajk9\\Desktop\\AWS.txt"
+		- Now, the file is uploaded to s3 bucket
+
+- EC2
+	- launch template
+	- target group
+	- auto scaling group
+	- load balancer
+
+
+- mysql commad line
+	- -p -> passwoord
+	- -u -> username
+	- which mysql 
+	- mysql --version
+	- mysql -uUserName -pPassword -hDatabaseEndPoint
+	- create table
+
+- object store -> dynamically
+- block storage -> fixed size 
+- 
+
+- vpc id - vpc-04dca6f48ec85cf75 / raj-vpc-vpc
+- endpoint - raj-database.chk8q66ceomh.eu-west-2.rds.amazonaws.com
+- admin raj12345
+
+- Maven Project
+	- Go to command prompt
+	- mvn archetype:generate -> download maven project
+
+*************************************************************************************
+Java 17 Dev Environment
+-------------------------
+
+Locate your JDK-17 Installation directories
+
+My System:
+C:\Program Files\Java\jdk-17
+
+Your System:
+C:\Program Files\jdk-17.0.1
+
+Setup USER Environment Variable:
+Start Menu > type "ENV" > "Edit Env Vars for YOUR account"
+
+in "User Variables" section, click "NEW" button to create :
+	Env Name: JAVA_HOME
+	Value : C:\Program Files\jdk-17.0.1
+
+Select another Variable "PATH" and click "Edit"
+Add new value "%JAVA_HOME%\bin" (No space anywhere inside this value)
+
+Remove any JDK path from "PATH" variable (of an older JDK)
+
+"Install" apache maven from Self Service portal.
+Folder to extract "C:\" 
+
+Locate the folder in windows explorer and find the "bin" folder
+your BIN folder path should be : 
+	C:\apache-maven-3.9.5\bin
+
+Edit Env Var for "Your Account" and add new Entry in "Path" variable
+C:\apache-maven-3.9.5\bin
+
+OPen a new CMD and try following commands:
+javac -version
+java -version
+mvn --version
+
+Every  "generated" maven project is by default configured to use OLDER java version
+If properties section is missing, add new
+
+ <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+ </properties>
+
+From "dependencies" remove the "JUnit" dependency
+
+Add "SqS" dependecies for AWS SQS Service
+
+<!-- https://mvnrepository.com/artifact/software.amazon.awssdk/sqs -->
+<dependency>
+    <groupId>software.amazon.awssdk</groupId>
+    <artifactId>sqs</artifactId>
+    <version>2.25.2</version>
+</dependency>
+
+********************************************************************************************
+
+- BeanStalk
+	- html -> php
+	- .war -> tomcat
+	- .jar -> java
+		- select only public instance subnets
+		- Do not select any database subnets
+		- Environment properties -> SERVER_PORT -> 8080(get it from springBoot)
+	- 
+*******************************************************************************************
+
+https://github.com/mahendra-shinde/sample-library-api
+
+
+Download the sample project
+Build : mvn package -DskipTests
+
+Run:
+cd target
+java -jar library-api-1.0.jar
+
+To STop : Press CTRL+C
+
+
+Deployed app:
+http://library-api.us-east-1.elasticbeanstalk.com
+
+BeanStalk :> Java-11 without tomcat
+
+******************************************************************************************

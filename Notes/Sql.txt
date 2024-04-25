@@ -1,0 +1,107 @@
+# Sql Commands
+
+- create database Student;
+- use Student;
+
+- Data types
+	1) exact numeric
+		- BIT, TINYINT, SMALLINT, INT, BIGINT
+		- NUMERIC/DECIMAL
+			- precision -> total digits both before and after decimal (by default 1)
+			- scale -> digits after the decimal only (by default 38)
+	2) approx numeric
+		- precision here - digits before the decimal only
+		- FLOAT(N) 
+			- N(1-24) -> max_precision = 7
+			- N(25-53) -> max_precision = 15
+		- REAL  - subset of float
+			- precision = 7
+	3) date and time
+		- DATE, TIME
+		- DATETIME - scale (by default 3)
+		- DATETIME2 - scale (0-7)
+		- SMALLDATETIME - digits after decimal in seconds not allowed (less memory)
+		- DATETIMEOFFSET - scale possible, according to timezone
+	4) char and String
+		- CHAR(N) 
+			- N(1-8000) -> number of characters (by default 8000)
+		- VARCHAR(N+2) 
+		- TEXT - N(1-2bn)
+			- cannot store non-latin chars (chinese, hindi)
+		- NCHAR - both latin and non-latin char
+			- If N = 5, memory allocate = 5*2 = 10 bytes
+		- NVARCHAR 
+		- NTEXT
+
+- create table emp (
+	id tinyint, 
+	name varchar(20), 
+	marks tinyint);
+
+- insert into emp values(1,"Raj",20);
+- insert into emp(id,name) values(2,"Dev");
+
+- select * from emp;
+- select id,name from emp;
+
+- Operators 
+	1) Comparision 
+		- =,>=,<=,<,>
+	2) Logical
+		- and,or,not
+	3) Arithmetic
+		- +,*,-,/
+
+- select * from emp where marks>=60;
+
+- Aggregate function
+	- sum,avg,min,max,abs,floor,ceiling,round
+- datetime function
+	- getDate()
+	- dateAdd(month/year/date,-2/+5,hireDate)
+	- dateDiff(year/date/month,firstDate,secondDate)
+	- datePart(year/month/date,hireDate)
+- string
+	- len,upper,lower
+	- replace(col_name,initial_value,final_value)
+	- substring(col_name,start,len)
+
+-user defined function
+	1) scaler function - return single value
+	2) inline table value function - return table(can write only 1 select query)
+	3) multi-valued table value function - return table
+
+-join
+	1) inner join / join - values common in both table
+	2) left join - values present in both table + values in left table
+	3) right join - values present in both table + values in right table
+	4) outer join - inner join + left join + right join (both tables)
+
+- select * from customer inner join orders on customer.customer_id=orders.customer_id;
+
+
+- emp(id,name,sal) sales(id,item,cost)
+1,dev,20000
+1,Raj,15000		1,noodles,60
+			1,vadapva,20 -> on emp.id = sales.id
+
+
+id,name,count
+1,raj,3
+2,dev,2
+
+name=DevKumar
+substring(name,1,4) -> Devk
+substring(name,3,4) -> vKum
+
+dept -> CSE,IT,ECE
+
+
+
+#Mastering your first day
+- not a college students and now a working professional.
+- have some confidence and do not hesitate while asking questions.
+- interaction with others to build self confidence and rapport.
+- lastly, clear all your doubts before leaving the office.
+
+java
